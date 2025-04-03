@@ -3,8 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "firebase": "^11.6.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "react-redux": "^9.2.0",
     "react-scripts": "^5.0.0"
   },
   "scripts": {
@@ -26,6 +28,7 @@
     ]
   },
   "devDependencies": {
+    "@reduxjs/toolkit": "^2.6.1",
     "react-router-dom": "^7.4.1",
     "tailwindcss": "^3.4.17"
   }
