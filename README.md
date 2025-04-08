@@ -15,6 +15,11 @@
 -Unsubscribe to onAuthStateChanged callback when the header component unmounts
 -Registered in TMDB and got the api keys after logging in
 -Get data from NOW PLAYING movie list api
+-CUstom hook for now playing movies
+-created movie slice
+-stored movie and trailer data in redux store
+-planning for main and secondary conatiner
+-embedded the yt video and make it auroplay and mute
 
 Explain1:
 onSSubmit={(e) => e.preventDefault()}: Prevents automaticaaly submitting the form when submit button is clicked as we want to validate the data before submitting it
