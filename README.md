@@ -24,6 +24,7 @@
 -added other types of movies in store to diaply on browse page
 -GPT SearchPage and Search Bar
 -Made the gpt search page multi lingual
+-Build secondary component
 
 Explain1:
 onSSubmit={(e) => e.preventDefault()}: Prevents automaticaaly submitting the form when submit button is clicked as we want to validate the data before submitting it
