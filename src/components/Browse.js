@@ -15,7 +15,6 @@ const Browse = () => {
       <Header/>
       <MainContainer/>
       <SecondaryContainer/>
-      Browse
    </div>
   )
 }
