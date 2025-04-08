@@ -18,8 +18,8 @@ const Login = () => {
 
     const handleButtonCLick = () => {
         //validate the form data
-        console.log(email.current.value)
-        console.log(password.current.value)
+        // console.log(email.current.value)
+        // console.log(password.current.value)
         const message = checkValidData(email.current.value, password.current.value, name.current?.value)
         // console.log(message)
         setErrorMessage(message)
@@ -35,7 +35,7 @@ const Login = () => {
                     }).then(() => {
                         // Profile updated!
                         const { uid, email, displayName, photoURL } = auth.currentUser;
-                        console.log(photoURL)
+                        // console.log(photoURL)
                         dispatch(addUser({ uid: uid, email: email, displayName: displayName, photoURL: photoURL }))
                         // navigate("/browse")
                         // ...
@@ -44,7 +44,7 @@ const Login = () => {
                         setErrorMessage(error.message)
                     });
 
-                    console.log(user)
+                    // console.log(user)
                     // ...
                 })
                 .catch((error) => {
@@ -60,7 +60,7 @@ const Login = () => {
                 .then((userCredential) => {
                     // Signed in 
                     const user = userCredential.user;
-                    console.log(user)
+                    // console.log(user)
                     // navigate("/browse")
                     // ...
                 })

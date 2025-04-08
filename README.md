@@ -20,6 +20,7 @@
 -stored movie and trailer data in redux store
 -planning for main and secondary conatiner
 -embedded the yt video and make it auroplay and mute
+-Build secondary component
 
 Explain1:
 onSSubmit={(e) => e.preventDefault()}: Prevents automaticaaly submitting the form when submit button is clicked as we want to validate the data before submitting it
