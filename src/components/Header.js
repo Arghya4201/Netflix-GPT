@@ -49,7 +49,7 @@ const Header = () => {
         />
       </div>
       {user && (
-        <div className='flex px-4'>
+        <div className='flex px-4 relative z-2'>
           <img className="w-8 h-8 mx-4" src={USER_IMAGE} alt='userIcon' />
           <button className='font-bold' onClick={handleSignOut}>Sign Out</button>
         </div>
