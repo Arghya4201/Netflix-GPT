@@ -6,10 +6,14 @@ import { useStore } from 'react-redux';
 import {addUser,removeUser} from '../utils/userSlice'
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useDispatch } from 'react-redux';
-import { LOGO, USER_IMAGE } from '../utils/constants';
+import { LOGO, USER_IMAGE,SUPPORTED_LANGUAGES } from '../utils/constants';
+import { toggleGptSearchView } from '../utils/gptSlice';
+import {changeLanguage} from '../utils/configSlice'
+import {useSelector} from 'react-redux'
 
 const Header = () => {
   const user = useStore(store => store.user)
+  const showGptSearch = useSelector(store => store.gpt.showGptSearch)
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
@@ -26,10 +30,13 @@ const Header = () => {
         navigate("/")
       }
     });
-
     // unsubscribing the onAuthStateChanged api when the header component unmounts
     return () => unsubscribe();
   }, [])
+
+  const handleGptSearchClick = () => {
+    dispatch(toggleGptSearchView())
+  }
 
   const handleSignOut = () => {
     signOut(auth).then(() => {
@@ -38,6 +45,11 @@ const Header = () => {
     }).catch((error) => {
       // An error happened.
     });
+  }
+
+  const handleLanguageChange = (e) =>{
+    // console.log(e.target.value)
+    dispatch(changeLanguage(e.target.value))
   }
 
   return (
@@ -50,7 +62,13 @@ const Header = () => {
       </div>
       {user && (
         <div className='flex px-4 relative z-2'>
-          <img className="w-8 h-8 mx-4" src={USER_IMAGE} alt='userIcon' />
+          {showGptSearch &&(<select className='p-2 bg-gray-900 text-white' onChange={handleLanguageChange}>
+            {SUPPORTED_LANGUAGES.map((language) => (
+              <option key={language.identifier} value={language.identifier}>{language.name}</option>
+            ))}
+          </select>)}
+          <button className='py-2 px-4 bg-purple-800 text-white rounded-lg mx-4 my-2' onClick={handleGptSearchClick}>{showGptSearch ? "HomePage" : "GPT Search"}</button>
+          <img className="w-8 h-8 mx-4 my-2" src={USER_IMAGE} alt='userIcon' />
           <button className='font-bold' onClick={handleSignOut}>Sign Out</button>
         </div>
       )}

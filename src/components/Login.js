@@ -6,6 +6,7 @@ import { auth } from '../utils/firebase';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../utils/userSlice';
+import { BG_URL } from '../utils/constants';
 
 const Login = () => {
     const navigate = useNavigate()
@@ -82,7 +83,7 @@ const Login = () => {
             <Header />
             <div className=''>
                 <img
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSMt0SE2xJ_LZucgbJUgXwrB7rYtTwHDpdfA&s"
+                    src={BG_URL}
                     alt="Netflix Background"
                     className="absolute top-0 left-0 w-full h-full object-cover"
                 />
