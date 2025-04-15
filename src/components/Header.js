@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { signOut } from "firebase/auth";
 import { auth } from '../utils/firebase';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useStore } from 'react-redux';
 import {addUser,removeUser} from '../utils/userSlice'
 import { getAuth, onAuthStateChanged } from "firebase/auth";
@@ -16,6 +16,7 @@ const Header = () => {
   const showGptSearch = useSelector(store => store.gpt.showGptSearch)
   const navigate = useNavigate()
   const dispatch = useDispatch()
+  const location = useLocation();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -23,7 +24,9 @@ const Header = () => {
         const { uid, email, displayName, photoURL } = user;
         // console.log(photoURL)
         dispatch(addUser({ uid: uid, email: email, displayName: displayName, photoURL: USER_IMAGE }))
-        navigate("/browse")
+        if (location.pathname === "/") {
+          navigate("/browse");
+        }
       } else {
         // User is signed out
         dispatch(removeUser())
