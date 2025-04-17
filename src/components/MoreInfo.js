@@ -1,11 +1,11 @@
 import React from 'react';
 import Poster from './Poster';
 import MoreInfoDetails from './MoreInfoDetails';
-import Header from './Header'; // ✅ Adjust the path if it's located elsewhere
+import Header from './Header';
 
 const MoreInfo = () => {
     return (
-        <div className="w-full h-screen bg-black text-white">
+        <div className="w-full h-screen bg-black text-white min-h-screen overflow-hidden flex flex-col">
             <Header />
             <div className="flex w-full h-[90%] p-10 gap-x-40 mt-[5%]">
                 <div className="w-1/5 flex items-center justify-center">

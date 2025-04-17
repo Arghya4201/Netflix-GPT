@@ -6,7 +6,13 @@ const moreinfoslice = createSlice({
         releaseYear : null,
         runtime : null,
         ageRating : null,
-        rating : null
+        rating : null,
+        activeButton : 0,
+        overview : null,
+        cast : [],
+        createdby: [],
+        Genre: [],
+        Recommendations : null
     },
     reducers : {
         addAgeRating : (state,action) => {
@@ -20,9 +26,27 @@ const moreinfoslice = createSlice({
         },
         addRating : (state,action) => {
             state.rating = action.payload
+        },
+        changeActiveButton : (state,action) => {
+            state.activeButton = action.payload
+        },
+        addOverView : (state,action) => {
+            state.overview = action.payload
+        },
+        addCast : (state,action) => {
+            state.cast = action.payload
+        },
+        addCreatedBy : (state,action) => {
+            state.createdby = action.payload
+        },
+        addGenre : (state,action) => {
+            state.Genre = action.payload
+        },
+        addRecommendations : (state,action) => {
+            state.Recommendations = action.payload
         }
     }
 })
 
-export const { addAgeRating, addReleaseYear, addRuntime, addRating } = moreinfoslice.actions;
+export const { addAgeRating, addReleaseYear, addRuntime, addRating, changeActiveButton, addOverView, addCast, addCreatedBy, addGenre, addRecommendations } = moreinfoslice.actions;
 export default moreinfoslice.reducer;
