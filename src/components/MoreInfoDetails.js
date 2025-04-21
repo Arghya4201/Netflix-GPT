@@ -4,6 +4,7 @@ import MovieGeneralDetails from './MovieGeneralDetails'
 import MoreInfoOptions from './MoreInfoOptions'
 import Overview from './Overview'
 import TrailerAndMore from './TrailerAndMore'
+import MoreLikeThis from './MoreLikeThis'
 
 const MoreInfoDetails = ({ movie }) => {
   const activeButton = useSelector((state) => state.moreinfo.activeButton)
@@ -25,8 +26,7 @@ const MoreInfoDetails = ({ movie }) => {
       <div className='row-span-10 overflow-auto'>
         {activeButton === 0 && <Overview movie={movie} />}
         {activeButton === 1 && <TrailerAndMore movie={movie} />}
-        {/* You can add more like this: */}
-        {/* {activeButton === 2 && <MoreLikeThis movie={movie} />} */}
+        {activeButton === 2 && <MoreLikeThis movie={movie} />}
       </div>
 
     </div>
