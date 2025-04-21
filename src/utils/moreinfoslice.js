@@ -12,7 +12,8 @@ const moreinfoslice = createSlice({
         cast : [],
         createdby: [],
         Genre: [],
-        Recommendations : null
+        Recommendations : null,
+        videos: null
     },
     reducers : {
         addAgeRating : (state,action) => {
@@ -44,9 +45,12 @@ const moreinfoslice = createSlice({
         },
         addRecommendations : (state,action) => {
             state.Recommendations = action.payload
+        },
+        addVideos : (state,action) => {
+            state.videos = action.payload
         }
     }
 })
 
-export const { addAgeRating, addReleaseYear, addRuntime, addRating, changeActiveButton, addOverView, addCast, addCreatedBy, addGenre, addRecommendations } = moreinfoslice.actions;
+export const { addAgeRating, addReleaseYear, addRuntime, addRating, changeActiveButton, addOverView, addCast, addCreatedBy, addGenre, addRecommendations, addVideos } = moreinfoslice.actions;
 export default moreinfoslice.reducer;

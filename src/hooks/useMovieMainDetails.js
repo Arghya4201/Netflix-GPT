@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { API_OPTIONS } from "../utils/constants";
 import { useDispatch } from "react-redux";
-import { addReleaseYear, addCertification, addAgeRating, addRuntime, addRating, addOverView, addCast, addCreatedBy, addGenre, addRecommendations } from "../utils/moreinfoslice";
+import { addReleaseYear, addCertification, addAgeRating, addRuntime, addRating, addOverView, addCast, addCreatedBy, addGenre, addRecommendations, addVideos } from "../utils/moreinfoslice";
 
 const useMovieMainDetails = (movie_id) => {
   const dispatch = useDispatch();
@@ -118,12 +118,23 @@ const useMovieMainDetails = (movie_id) => {
     }
   }
 
+  const getVideos = async() => {
+    try{
+      const data = await fetch(`https://api.themoviedb.org/3/movie/${movie_id}/videos?language=en-US`,API_OPTIONS);
+      const json = await data.json();
+      dispatch(addVideos(json.results))
+    } catch(err){
+      console.error("Error fetching movie videos:", err);
+    }
+  }
+
   useEffect(() => {
     if (movie_id) getReleaseInfo();
     if (movie_id) getRunTime();
     if (movie_id) getCredits();
     if(movie_id) getGenre();
     if(movie_id) getRecommendations();
+    if(movie_id) getVideos();
   }, [movie_id]);
 };
 
